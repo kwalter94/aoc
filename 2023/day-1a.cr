@@ -4,14 +4,10 @@ value = STDIN.each_line.reduce(0) do |accum, line|
   line.each_char do |char|
     next unless char.number?
 
-    if digits.size < 2
-      digits << char.to_i32
-    else
-      digits[1] = char.to_i32
-    end
+    digits << char.to_i32
   end
 
-  accum + (digits[0] * 10) + (digits.size == 2 ? digits[1] : digits[0])
+  accum + (digits[0] * 10) + digits[-1]
 end
 
 puts("Value: #{value}")
