@@ -1,6 +1,6 @@
 def game_min_power(game : Array(String)) : Int32
-  counts = game.reduce({"red" => 0, "blue" => 0, "green" => 0}) do |accum, game|
-    game.split(";").each do |picks|
+  counts = game.reduce({"red" => 0, "blue" => 0, "green" => 0}) do |accum, rounds|
+    rounds.split(";").each do |picks|
       picks.split(",").each do |pick|
         count, colour = pick.split
         next if accum.nil?
