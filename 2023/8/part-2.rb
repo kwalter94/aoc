@@ -50,20 +50,6 @@ module AOC
     end
   end
 
-  def gcd(numbers)
-    f_gcd = ->(a, b) do
-      while !b.zero?
-        a, b = b, a % b
-      end
-
-      a
-    end
-
-    numbers[1...].reduce(numbers[0]) do |accum, number|
-      f_gcd.call(accum, number)
-    end
-  end
-
   def lcm(numbers)
     f_gcd = ->(a, b) do 
       while b > 0
